@@ -1,0 +1,14 @@
+gcp_region_name                = "europe-central2"
+project_id                     = "test-12-372810"
+network_cidr_block             = "10.0.0.0/18"
+secondary_ip_cidr1             = "10.48.0.0/12"
+secondary_ip_cidr2             = "20.52.0.0/18"
+firewall_ports                 = ["80", "22"]
+firewall_source_ranges         = ["0.0.0.0/0"]
+gke_location                   = "europe-central2-a"
+gke_master_ipv4_cidr           = "172.16.0.0/28"
+gke_node_pool_count            = 2
+gke_node_count                 = 1
+gke_machine_type               = "e2-medium"
+gke_node_disk_size             = "50"
+gke_node_disk_type             = "pd-balanced"
