@@ -2,6 +2,7 @@
 resource "google_container_cluster" "primary-cluster" {
   name                     = var.cluster_name 
   location                 = var.cluster_location
+  node_locations           = var.gke_node_location
   remove_default_node_pool = true
   initial_node_count       = 1
   network                  = var.cluster_network
@@ -9,6 +10,14 @@ resource "google_container_cluster" "primary-cluster" {
   logging_service          = var.gke_log_service 
   monitoring_service       = var.gke_monitoring_service 
   networking_mode          = "VPC_NATIVE"
+
+  master_authorized_networks_config {
+    
+    cidr_blocks {
+       cidr_block = var.master_auth_cidr
+       display_name = "internal"
+     }
+   }
   
   cluster_autoscaling {
     enabled = false

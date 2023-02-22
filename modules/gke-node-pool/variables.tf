@@ -7,9 +7,15 @@ variable "gke_cluster_id" {
   type              = string
   description       = "cluster id of the GKE"
 }
+
 variable "gke_cluster_location" {
   type              = string
   description       = "cluster location of the GKE"
+}
+
+variable "gke_node_location" {
+  type              = list(string)
+  description       = "Location of the node pool"
 }
 
 variable "node-count" {

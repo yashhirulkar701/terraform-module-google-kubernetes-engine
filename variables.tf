@@ -23,21 +23,36 @@ variable "secondary_ip_cidr2" {
   description         = "CIDR for secondary ip of subnetwork for k8s service"
 }
 
-variable "firewall_ports" {
+variable "tcp_firewall_ports" {
   type                = list(string)
   description         = "list of the tcp ports to be enabled"
 }
+
+variable "udp_firewall_ports" {
+  type                = list(string)
+  description         = "list of the udp ports to be enabled"
+}
+
 
 variable "firewall_source_ranges" {
   type                = list(string)
   description         = "source IP address range to which the firewall has to be applied"
 }
 
-variable "gke_location" {
+variable "gke_cluster_location" {
   type                = string
   description         = "the GCP region/zone in which GKE should be provisioned"
 }
 
+variable "gke_node_pool_location" {
+  type                = list(string)
+  description         = "the GCP zone in which GKE node pool should be provisioned"
+}
+
+# variable "gke_node_pool2_location" {
+#   type                = string
+#   description         = "the GCP zone in which GKE node pool 2 should be provisioned"
+# }
 
 variable "gke_master_ipv4_cidr" {
   type                = string
@@ -69,3 +84,7 @@ variable "gke_node_disk_type" {
   description         = "disk type of the node machine"
 }
 
+variable "master-auth-cidr" {
+  type              = string
+  description       = "External networks that can access the Kubernetes cluster master through HTTPS"
+}

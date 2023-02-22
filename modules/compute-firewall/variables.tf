@@ -13,6 +13,11 @@ variable "tcp_ports" {
   description = "list of the tcp ports to be enabled"
 }
 
+variable "udp_ports" {
+  type    = list(string)
+  description = "list of the udp ports to be enabled"
+}
+
 variable "source_ranges" {
   type    = list(string)
   description = "source IP address range to which the firewall has to be applied"

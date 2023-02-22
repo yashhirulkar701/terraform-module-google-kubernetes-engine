@@ -4,6 +4,7 @@ resource "google_container_node_pool" "gke-node-pool" {
   cluster    = var.gke_cluster_id
   node_count = var.node-count 
   location   = var.gke_cluster_location
+  node_locations = var.gke_node_location
 
   management {
     auto_repair  = true

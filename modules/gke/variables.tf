@@ -7,6 +7,12 @@ variable "cluster_location" {
   type              = string
   description       = "Location of the Cluster"
 }
+
+variable "gke_node_location" {
+  type              = list(string)
+  description       = "Location of the node pool"
+}
+
 variable "cluster_network" {
   type              = string
   description       = "Network of the cluster"
@@ -34,6 +40,11 @@ variable "enable_private_gke_endpoint" {
 variable "master_ipv4_cidr" {
   type              = string
   description       = "The IP range in CIDR notation to use for the hosted master network, and it must be a /28 subnet."
+}
+
+variable "master_auth_cidr" {
+  type              = string
+  description       = "External networks that can access the Kubernetes cluster master through HTTPS"
 }
 
 variable "workload-pool" {
